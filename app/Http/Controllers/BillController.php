@@ -1,11 +1,11 @@
 <?php namespace App\Http\Controllers;
 
-
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Bill;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class billTracker extends Controller {
+class BillController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,9 @@ class billTracker extends Controller {
 	public function index()
 	{
 		//
-		return view('tracker');
+        $r = new Bill;
+        $r::all();
+        return view('tracker')->with('restaurants', $r);
 	}
 
 	/**
@@ -33,24 +35,9 @@ class billTracker extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store()
 	{
 		//
-        //$amount = $request->input('amount');
-        $amount = $request->input('amount');
-        $restaurant = $request->input('restaurant');
-        $tip = $request->input('tip');
-        $result = $amount * $tip / 100;
-        $total = round($amount) + round($result);
-        DB::table('tracker')->insert(['restaurant'=> $restaurant, 'total'=>$total]);
-
-        return view('results')->with('result', $result)
-               ->with('total', $total)
-               ->with('tip', $tip);
-
-
-
-
 	}
 
 	/**
