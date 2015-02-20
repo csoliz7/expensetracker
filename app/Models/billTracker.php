@@ -6,7 +6,7 @@ class billTracker extends Model {
 
 	//
     protected $table = 'tracker';
-    protected $fillable = ['restaurant', 'total'];
+
 
 
 

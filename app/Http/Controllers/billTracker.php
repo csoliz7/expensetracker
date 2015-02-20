@@ -42,16 +42,14 @@ class billTracker extends Controller {
         $tip = $request->input('tip');
         $result = $amount * $tip / 100;
         $total = round($amount) + round($result);
+        DB::table('tracker')->insert(['restaurant'=> $restaurant, 'total'=>$total]);
 
         return view('results')->with('result', $result)
                ->with('total', $total)
                ->with('tip', $tip);
 
 
-        DB::table('tracker')->insert(['restaurant'=> $restaurant]
 
-
-    );
 
 	}
 
