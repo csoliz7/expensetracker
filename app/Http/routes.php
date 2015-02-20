@@ -21,4 +21,5 @@ Route::controllers([
 ]);
 
 
-Route::get('xyz','xyzController@index');
+Route::get('tracker','billTracker@index');
+Route::post('store', 'billTracker@store');
