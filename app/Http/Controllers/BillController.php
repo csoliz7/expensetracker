@@ -3,8 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Bill;
+use App\Amount;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class BillController extends Controller {
 
 	/**
@@ -16,8 +17,8 @@ class BillController extends Controller {
 	{
 		//
         $r = new Bill;
-        $r::all();
-        return view('tracker')->with('restaurants', $r);
+        $object = $r::all();
+        return view('tracker')->with('restaurants', $object);
 	}
 
 	/**
@@ -35,9 +36,29 @@ class BillController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		//
+        $amount = $request->input('amount');
+
+        $tip = $request->input('tip');
+        $result = $amount * $tip / 100;
+        $total = round($amount) + round($result);
+
+        $record = new Amount;
+        $record->id = '';
+        $record->restaurant = $request->input('restaurant');
+        $record->total = $total;
+        $record->date = Carbon::now();
+        $record->save();
+
+        return view('results')->with('result', $result)
+            ->with('total', $total)
+            ->with('tip', $tip);
+
+
+
+
 	}
 
 	/**

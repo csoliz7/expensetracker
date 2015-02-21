@@ -3,11 +3,10 @@
 @section('content')
 <h1>Expense Tracker</h1>
 
-{{ print_r($restaurants) }}
 
 
 
-<form method="post" action="billtracker.local/index.php/store" >
+<form method="post" action="store" >
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
 
@@ -15,12 +14,15 @@
         <div class="medium-6 columns">
             <label>Select Restaurant:
                 <select name="restaurant">
-                    <option value="jerrys">Jerrys Deli</option>
-                    <option value="ihop">IHOP</option>
-                    <option value="Wendys">Wendys</option>
-                    <option value="panda">Panda Express</option>
-                    <option value="marie-callender">Marie Callenders</option>
-                    <option value="other">Other</option>
+
+                    @foreach($restaurants as $r)
+
+                    <option value="{{$r['name']}}">{{$r['name']}}</option>
+
+                    @endforeach
+
+
+
 
                 </select>
             </label>
@@ -56,7 +58,6 @@
     </div>
 </div>
 
-<input type="hidden" name="date">
 </form>
 
 @stop
