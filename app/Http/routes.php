@@ -23,3 +23,5 @@ Route::controllers([
 
 Route::get('tracker','BillController@index');
 Route::post('store', 'BillController@store');
+
+Route::get('report','ReportController@index');

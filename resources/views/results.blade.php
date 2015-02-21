@@ -25,6 +25,9 @@
 
 </div>
 
+<div class="row">
+    <a class="button" href="http://billtracker.local/index.php/tracker">Back</a>
+</div>
 
 <div class="row">
     <hr class="divider">
