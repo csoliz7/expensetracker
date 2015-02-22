@@ -5,19 +5,22 @@
 @section('content')
 
 
-<table>
-
+<table role="grid">
+    <caption>Report</caption>
+<thead>
     <tr>
-        <th>Date</th>
-        <th>Restaurant</th>
-        <th>Amount</th>
+        <th width="200">Date</th>
+        <th width="300">Restaurant</th>
+        <th width="150">Amount</th>
     </tr>
+</thead>
+
 
     @foreach($report as $r)
         <tr>
             <td>{{$r['date']}}</td>
             <td>{{$r['restaurant']}}</td>
-            <td>{{$r['total']}}</td>
+            <td>$ {{$r['total']}}</td>
         </tr>
         @endforeach
 </table>

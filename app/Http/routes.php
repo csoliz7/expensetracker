@@ -25,3 +25,7 @@ Route::get('tracker','BillController@index');
 Route::post('store', 'BillController@store');
 
 Route::get('report','ReportController@index');
+
+Route::get('add','RestaurantController@index');
+
+Route::post('restaurant','RestaurantController@store');

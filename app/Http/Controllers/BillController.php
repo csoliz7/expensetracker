@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Bill;
 use App\Amount;
+use App\Restaurant;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 class BillController extends Controller {
@@ -31,6 +32,9 @@ class BillController extends Controller {
 		//
 	}
 
+
+
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -49,7 +53,7 @@ class BillController extends Controller {
         $record->id = '';
         $record->restaurant = $request->input('restaurant');
         $record->total = $total;
-        $record->date = Carbon::now();
+        $record->date = Carbon::now()->toDateTimeString();
         $record->save();
 
         return view('results')->with('result', $result)

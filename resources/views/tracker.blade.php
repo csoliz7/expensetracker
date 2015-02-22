@@ -30,7 +30,12 @@
     </div>
 
 
+<div class="row">
+<div class="medium-6 columns">
+<a class="button" href="add">Add Restaurant</a>
+</div>
 
+</div>
 
 
     <div class="row">
@@ -57,6 +62,12 @@
     <input type="reset" class="button" value="Reset">
     </div>
 </div>
+
+    <div class="row">
+        <div class="medium-6 columns">
+            <a class="button" href="http://billtracker.local/index.php/report">Check Report</a>
+        </div>
+    </div>
 
 </form>
 
